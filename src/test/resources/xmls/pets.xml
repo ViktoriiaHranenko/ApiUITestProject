@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Main Suite">
+    <test name="Pet Test">
+        <classes>
+            <class name="testng.org.pet_store.regression.pet.PetTest" />
+        </classes>
+    </test>
+</suite>

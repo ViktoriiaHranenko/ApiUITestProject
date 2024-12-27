@@ -11,4 +11,8 @@ public class Pet {
     private String id;
     private String name;
     private String status;
+
+    public String getDescription() {
+        return String.format("Pet with name '%s' and status '%s'", name, status);
+    }
 }
