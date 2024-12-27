@@ -57,6 +57,7 @@ src/test/java
 └── resources
     ├── features
     └── xmls
+    
 
 Notes
 This project is designed to demonstrate test automation skills using the Swagger Petstore API.
