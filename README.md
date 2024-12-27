@@ -11,20 +11,20 @@ Technologies Used
 - TestNG and Cucumber: For organizing and running automated test suites.
 
 Key Features
-  Generic Response Model:
+- Generic Response Model:
   Responses are encapsulated in a ResponseModel, which includes:
   - HTTP status code 
   - Headers 
   - Response messages 
   - Generic body (defined in service methods)
 
-  Object Models:
+- Object Models:
   Each entity (e.g., Pet, User) has its dedicated model to represent API request and response bodies.
 
-  Logging:
+- Logging:
   Added a LoggingInterceptor for logging HTTP requests and responses.
 
-  Test Organization:
+- Test Organization:
   Both TestNG and Cucumber frameworks are supported, with tests grouped logically (e.g., regression tests, unit tests).
 
 Notes
