@@ -1,25 +1,32 @@
-Requirements for project:
-Java 21, Lombok plugin
-Встановіть Lombok Plugin у вашій IDE (наприклад, IntelliJ IDEA):
+PetStore API Test Automation Project
 
-У IntelliJ IDEA перейдіть до File > Settings > Plugins, 
-знайдіть Lombok і встановіть його.
-Увімкніть обробку анотацій:
+Requirements
+- Java 21
+- Lombok plugin (ensure it's enabled in your IDE)
 
-У IntelliJ IDEA перейдіть до File > Settings > Build, Execution, Deployment > Compiler > Annotation Processors 
-і переконайтеся, що опція Enable annotation processing увімкнена.
+Technologies Used
+  Retrofit: Used for implementing API interfaces.
+  Lombok: Simplifies the creation of models by reducing boilerplate code.
+  Allure: Integrated for generating detailed and visually appealing test reports.
+  TestNG and Cucumber: For organizing and running automated test suites.
 
-Technologies used for project:
-Retrofit library for api interfaces implementation.
+Key Features
+  Generic Response Model:
+  Responses are encapsulated in a ResponseModel, which includes:
+  - HTTP status code 
+  - Headers 
+  - Response messages 
+  - Generic body (defined in service methods)
 
-Responses are represented as Response model as
-the generic model, which store information about 
-response status code, headers, messages and generic body
-that is defined in service methods.
+  Object Models:
+  Each entity (e.g., Pet, User) has its dedicated model to represent API request and response bodies.
 
-For each object were created separate models as Pet, User etc.
+  Logging:
+  Added a LoggingInterceptor for logging HTTP requests and responses.
 
-For logging was added LoggingInterceptor
+  Test Organization:
+  Both TestNG and Cucumber frameworks are supported, with tests grouped logically (e.g., regression tests, unit tests).
+
 
 Project structure:
 src/main/java/
@@ -27,19 +34,14 @@ src/main/java/
 │   ├── common
 │   │   ├── api
 │   │   ├── interceptors
-│   │   ├── models
-│   │   └── utils
+│   │   └── models
 │   ├── config
-│   ├── pet_store/api
-│   │   ├── endpoints
-│   │   ├── models
-│   │   │   ├── pet
-│   │   │   └── user
-│   │   └── services
-│   └── swaglabs
-│       ├── config
-│       ├── pages
-│       └── services 
+│   └── pet_store/api
+│       ├── endpoints
+│       ├── models
+│       │   ├── pet
+│       │   └── user
+│       └── services
 └── resources
 
 src/test/java
@@ -49,10 +51,21 @@ src/test/java
 │   ├── cucumber/org/pet_store
 │   │   ├── runner
 │   │   └── steps
-│   └── testng/org
-│       ├── regression
-│       │   ├── pet
-│       │   └── user
-│       └── smoke
+│   └── testng/org/pet_store/regression
+│       ├── pet
+│       └── user
 └── resources
-    └── features
+    ├── features
+    └── xmls
+
+Notes
+This project is designed to demonstrate test automation skills using the Swagger Petstore API.
+Important considerations:
+
+The Swagger Petstore API has limited support for handling error scenarios and often returns generic  
+responses for invalid or erroneous requests. Due to these limitations, negative test scenarios have been 
+excluded to avoid creating tests that would not align with real-world expectations or provide meaningful insights. 
+Instead, the focus is placed on validating positive test flows and showcasing:
+  - Clean, maintainable automation practices 
+  - Well-structured and modular test design 
+  - Scalability for future expansion
