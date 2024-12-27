@@ -2,6 +2,7 @@ package common.unit;
 
 import org.aeonbits.owner.ConfigFactory;
 import org.config.ProjectTestConfig;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 import java.util.Map;
@@ -22,7 +23,6 @@ public class ConfigTest {
         System.setProperty("test.api.baseUrl", systemUrl);
         ProjectTestConfig config = ConfigFactory.create(ProjectTestConfig.class);
         assertEquals(config.testApiBaseUrl(), systemUrl, "Expected URL to be overridden by system properties");
-        System.clearProperty("test.api.baseUrl");
     }
 
     @Test
@@ -39,5 +39,10 @@ public class ConfigTest {
                 "test.api.baseUrl", testUrl
         ));
         assertEquals(config.testApiBaseUrl(), testUrl, "Expected mocked URL to override all other sources");
+    }
+
+    @AfterClass
+    public void cleanUp() {
+        System.clearProperty("test.api.baseUrl");
     }
 }

@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "021974e5-8f3f-4414-9dc6-577f89d40b8e",
+		"name": "Pet Store project",
+		"description": "This is a Postman collection for [https://petstore.swagger.io/](https://petstore.swagger.io/#/.), a test environment designed for live testing of CRUD operations for the **PetStore API**. It contains essential requests to interact with **\"pet\"** and **\"user\"** objects, making it convenient for validating the core functionality of the API.\n\n### Variables\n\nThe collection uses the following variables to simplify testing and improve scalability:\n\n- `{{baseUrl}}`: Base URL (default: [https://petstore.swagger.io/](https://petstore.swagger.io/)).\n    \n- `{{userName}}`: Username for requests related to **User**.\n    \n- `{{petId}}`: Pet ID for requests related to **Pet**.\n    \n\n### Purpose\n\nThis collection serves as the first step in API test automation and aims to:\n\n- Validate the correctness of CRUD operations before implementing automation.\n    \n- Minimize the risk of errors during the creation of automated test scripts.\n    \n- Provide a clean and scalable setup by leveraging variables for reusable data.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39421719"
+	},
+	"item": [
+		{
+			"name": "Pet",
+			"item": [
+				{
+					"name": "Find the pet by Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basicUrl}}/pet/findByStatus?status=available",
+							"host": [
+								"{{basicUrl}}"
+							],
+							"path": [
+								"pet",
+								"findByStatus"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "available"
+								}
+							]
+						},
+						"description": "Fetch pets based on their status (e.g., \"available\", \"pending\", \"sold\")."
+					},
+					"response": []
+				},
+				{
+					"name": "Create a pet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  },\r\n  \"name\": \"testPet1\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basicUrl}}/pet",
+							"host": [
+								"{{basicUrl}}"
+							],
+							"path": [
+								"pet"
+							]
+						},
+						"description": "Create a new pet object."
+					},
+					"response": []
+				},
+				{
+					"name": "Update the pet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  },\r\n  \"name\": \"doggie\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basicUrl}}/pet",
+							"host": [
+								"{{basicUrl}}"
+							],
+							"path": [
+								"pet"
+							]
+						},
+						"description": "Update information about an existing pet."
+					},
+					"response": []
+				},
+				{
+					"name": "Find the pet by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basicUrl}}/pet/{{petId}}",
+							"host": [
+								"{{basicUrl}}"
+							],
+							"path": [
+								"pet",
+								"{{petId}}"
+							]
+						},
+						"description": "Retrieve the pet using its unique ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Update the pet in the store with form data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{basicUrl}}/pet/{{petId}}?name=TestName2",
+							"host": [
+								"{{basicUrl}}"
+							],
+							"path": [
+								"pet",
+								"{{petId}}"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "TestName2"
+								}
+							]
+						},
+						"description": "Update additional details."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete the pet",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basicUrl}}/pet/{{petId}}",
+							"host": [
+								"{{basicUrl}}"
+							],
+							"path": [
+								"pet",
+								"{{petId}}"
+							]
+						},
+						"description": "Delete a pet by its ID."
+					},
+					"response": []
+				}
+			],
+			"description": "In this folder, you will find general CRUD operations for managing pets and their data."
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Find the user by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basicUrl}}/user/{{userName}}",
+							"host": [
+								"{{basicUrl}}"
+							],
+							"path": [
+								"user",
+								"{{userName}}"
+							]
+						},
+						"description": "Retrieve a user by username."
+					},
+					"response": []
+				},
+				{
+					"name": "Create an user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"4949988\",\r\n  \"username\": \"testUser\",\r\n  \"firstName\": \"TestUserFirstNae\",\r\n  \"lastName\": \"TestUserSecondName\",\r\n  \"email\": \"string\",\r\n  \"password\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"userStatus\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basicUrl}}/user",
+							"host": [
+								"{{basicUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						},
+						"description": "Create a new user."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete the user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basicUrl}}/user/{{userName}}",
+							"host": [
+								"{{basicUrl}}"
+							],
+							"path": [
+								"user",
+								"{{userName}}"
+							]
+						},
+						"description": "Delete the user."
+					},
+					"response": []
+				},
+				{
+					"name": "Update the user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"string\",\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"userStatus\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basicUrl}}/user/{{userName}}",
+							"host": [
+								"{{basicUrl}}"
+							],
+							"path": [
+								"user",
+								"{{userName}}"
+							]
+						},
+						"description": "Update information about a user."
+					},
+					"response": []
+				}
+			],
+			"description": "In this folder, you will find general CRUD operations for managing users and their data."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "basicUrl",
+			"value": "https://petstore.swagger.io/v2",
+			"type": "string"
+		},
+		{
+			"key": "petId",
+			"value": "9223372036854775807",
+			"type": "string"
+		},
+		{
+			"key": "userName",
+			"value": "testUser",
+			"type": "string"
+		}
+	]
+}

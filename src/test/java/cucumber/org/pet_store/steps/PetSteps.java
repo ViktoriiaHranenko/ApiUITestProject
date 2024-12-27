@@ -1,4 +1,4 @@
-package steps;
+package cucumber.org.pet_store.steps;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,32 +12,35 @@ import java.util.List;
 
 public class PetSteps {
     private PetStoreClient client = new PetStoreClient();
-    private ResponseModel response;
+    private ResponseModel<Pet>response;
     private Pet createdPet;
     private List<Pet> petList;
     private int responseCode;
 
-    @Given("a pet with name {string} and status {string}")
-    public void aPetWithNameAndStatus(String name, String status) {
+    /*@When("I send a request to create the pet with {string} and {string}")
+    public void createPetWithNameAndStatus(String name, String status) {
+        System.out.println("given");
         response = client.getPetsService().createPet(new Pet(name, status));
-    }
+    }*/
 
-    @When("I send a request to create the pet")
-    public void iSendARequestToCreateThePet() {
-        responseCode = response.getStatusCode();
+    @When("I send a request to create the pet with id {string} name {string} and status {string}")
+    public void iSendARequestToCreateThePetWithNameAndStatus(String id, String name, String status) {
+        System.out.println("given  " + id + name + " " + status);
+        response = client.getPetsService().createPet(new Pet(id, name, status));
     }
 
     @Then("the response status code should be {int}")
     public void theResponseStatusCodeShouldBe(int statusCode) {
+        responseCode = response.getStatusCode();
         Assert.assertEquals(responseCode, statusCode, "Response code is incorrect.");
     }
 
     @Then("the pet name should be {string}")
     public void thePetNameShouldBe(String name) {
-        Assert.assertEquals(createdPet.getName(), name, "Pet name is incorrect.");
+        Assert.assertEquals(response.getBody().getName(), name, "Pet name is incorrect.");
     }
 
-    @Given("a pet with name {string} and status {string} exists")
+    /* @Given("a pet with name {string} and status {string} exists")
     public void aPetWithNameAndStatusExists(String name, String status) {
         client.getPetsService().createPet(new Pet(name, status));
     }
@@ -62,4 +65,6 @@ public class PetSteps {
     public void iDeleteThePetWithID(String id) {
         responseCode = client.getPetsService().deletePet(id).code();
     }
+*/
+
 }

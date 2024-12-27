@@ -1,4 +1,4 @@
-package org.pet_store.regression.pet;
+package testng.org.pet_store.regression.pet;
 
 import org.pet_store.api.PetStoreClient;
 import org.pet_store.api.models.pet.Pet;
@@ -50,7 +50,7 @@ public class PetTest {
         Assert.assertEquals(pet.getId(), ID_1, "Pet ID is incorrect");
     }
 
-    @Test()
+    @Test
     public void getPetTest() {
         client.getPetsService().createPet(petInAvailableStatus);
         var pet = client.getPetsService().getPetById(ID_2);

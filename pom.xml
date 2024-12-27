@@ -12,7 +12,6 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <testng.version>7.10.2</testng.version>
         <selenium.version>4.26.0</selenium.version>
         <retrofit.version>2.11.0</retrofit.version>
         <converter.version>2.11.0</converter.version>
@@ -25,12 +24,6 @@
         <cucumber.testng.version>7.20.1</cucumber.testng.version>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${testng.version}</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -74,7 +67,7 @@
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-cucumber6-jvm</artifactId>
+            <artifactId>allure-cucumber7-jvm</artifactId>
             <version>${allure.cucumber.version}</version>
         </dependency>
         <dependency>
