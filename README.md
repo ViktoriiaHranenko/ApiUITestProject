@@ -5,10 +5,10 @@ Requirements
 - Lombok plugin (ensure it's enabled in your IDE)
 
 Technologies Used
-  Retrofit: Used for implementing API interfaces.
-  Lombok: Simplifies the creation of models by reducing boilerplate code.
-  Allure: Integrated for generating detailed and visually appealing test reports.
-  TestNG and Cucumber: For organizing and running automated test suites.
+- Retrofit: Used for implementing API interfaces.
+- Lombok: Simplifies the creation of models by reducing boilerplate code.
+- Allure: Integrated for generating detailed and visually appealing test reports.
+- TestNG and Cucumber: For organizing and running automated test suites.
 
 Key Features
   Generic Response Model:
