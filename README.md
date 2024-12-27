@@ -27,38 +27,6 @@ Key Features
   Test Organization:
   Both TestNG and Cucumber frameworks are supported, with tests grouped logically (e.g., regression tests, unit tests).
 
-
-Project structure:
-src/main/java/
-├── org
-│   ├── common
-│   │   ├── api
-│   │   ├── interceptors
-│   │   └── models
-│   ├── config
-│   └── pet_store/api
-│       ├── endpoints
-│       ├── models
-│       │   ├── pet
-│       │   └── user
-│       └── services
-└── resources
-
-src/test/java
-├── java
-│   ├── common
-│   │   └── unit
-│   ├── cucumber/org/pet_store
-│   │   ├── runner
-│   │   └── steps
-│   └── testng/org/pet_store/regression
-│       ├── pet
-│       └── user
-└── resources
-    ├── features
-    └── xmls
-    
-
 Notes
 This project is designed to demonstrate test automation skills using the Swagger Petstore API.
 Important considerations:
